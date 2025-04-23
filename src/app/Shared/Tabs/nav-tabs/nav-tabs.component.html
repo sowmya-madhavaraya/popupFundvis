@@ -1,0 +1,22 @@
+<div class="flex gap-4 p-4 bg-gray-100">
+  <fundvis-tab
+    *ngFor="let tab of tabs"
+    [title]="tab"
+    [isSelected]="selectedTab === tab"
+    (tabSelected)="selectTab(tab)"
+  ></fundvis-tab>
+</div>
+
+<div class="p-4">
+  <ng-container [ngSwitch]="selectedTab">
+    <div *ngSwitchCase="'Details'">
+      <app-accordion [items]="items"></app-accordion>
+    </div>
+    <div *ngSwitchCase="'Systems'">
+      <!-- Systems content -->
+    </div>
+    <div *ngSwitchCase="'References'">
+      <!-- References content -->
+    </div>
+  </ng-container>
+</div>

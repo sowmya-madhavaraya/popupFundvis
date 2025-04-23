@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Tasks",
+    "count": 2,
+    "columns": ["Name", "Action"],
+    "data": [
+      { "Name": "Function a", "Action": "Preview" },
+      { "Name": "Function b", "Action": "Preview" }
+    ]
+  },
+  {
+    "title": "Assets",
+    "count": 1,
+    "columns": ["Asset Name", "Type"],
+    "data": [
+      { "Asset Name": "Asset X", "Type": "Digital" }
+    ]
+  }
+]

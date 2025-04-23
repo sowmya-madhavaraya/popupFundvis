@@ -1,0 +1,36 @@
+<!-- Backdrop -->
+<div
+  class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500"
+  [class.opacity-0]="!isOpen"
+  [class.pointer-events-none]="!isOpen"
+  (click)="closePanel()"
+></div>
+
+<!-- Slide-in Panel -->
+<div
+  class="fixed top-0 right-0 h-full bg-white shadow-lg z-50 transform transition-transform duration-500 ease-in-out"
+  [ngClass]="{
+    'translate-x-0': isOpen,
+    'translate-x-full': !isOpen
+  }"
+  style="width: 35em; height: 100vh; overflow: auto;"
+>
+  <div class="p-4 flex justify-between items-center bg-gray-100">
+    <div class="text-lg font-semibold">{{ headerText }}</div>
+    <!-- TODO: use svg or icon-library icon as per app set standard -->
+    <button
+    (click)="closePanel()"
+    class="text-gray-600 hover:text-black p-2 rounded-md transition-colors"
+    aria-label="Close panel"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    </button>
+  </div>
+
+  <!-- Nav Tabs below header -->
+  <div class="h-[calc(100%-64px)]">
+    <nav-tabs></nav-tabs>
+  </div>
+</div>

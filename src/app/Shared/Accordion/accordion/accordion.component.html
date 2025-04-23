@@ -1,0 +1,9 @@
+<div class="space-y-1 p-2">
+  <accordion-item
+  *ngFor="let item of items"
+  [title]="item.title"
+  [count]="item.count"
+  [columns]="item.columns"
+  [data]="item.data"
+></accordion-item>
+</div>

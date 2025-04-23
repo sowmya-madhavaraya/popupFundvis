@@ -1,0 +1,42 @@
+<div class="border border-gray-300 rounded-md overflow-hidden">
+  <table *ngIf="columns?.length && data?.length; else noData" class="w-full text-sm text-left">
+    <colgroup>
+      <col class="w-3/4">
+      <col class="w-1/4">
+    </colgroup>
+    <!-- Table Header -->
+    <thead class="bg-gray-100 text-gray-600 font-semibold border-b border-gray-300">
+      <tr>
+        <th *ngFor="let col of columns" class="px-4 py-2">
+          {{ col }}
+        </th>
+      </tr>
+    </thead>
+
+    <!-- Table Body -->
+    <tbody>
+      <tr
+        *ngFor="let row of data; let i = index"
+        class="odd:bg-white even:bg-gray-100"
+      >
+        <td *ngFor="let col of columns" class="px-4 py-2">
+          <!-- If this is the Action column, render a button -->
+          <ng-container *ngIf="col === 'Action'; else normalCell">
+            <fundvis-button class="normal" [buttonContent]="row[col]">
+            </fundvis-button>
+          </ng-container>
+
+          <!-- Otherwise, just show the value -->
+          <ng-template #normalCell>
+            {{ row[col] }}
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- If nothing coming in -->
+  <ng-template #noData>
+    <div class="p-2 text-gray-500 italic">No info to display</div>
+  </ng-template>
+</div>
