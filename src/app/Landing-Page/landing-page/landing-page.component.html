@@ -1,0 +1,5 @@
+<div class="flex justify-center items-center min-h-screen">
+  <fundvis-button class="normal" buttonContent="Click me" (onButtonClick)="showPopupModal()"/>
+  <slide-in-panel [isOpen]="isPanelOpen" (closed)="closeModal()" [headerText]="headerTextVal">
+  </slide-in-panel>
+</div>
